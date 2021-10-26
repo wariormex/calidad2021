@@ -80,6 +80,7 @@ public class FakeOracleAccountDAOTest {
 	@Test
 	public void balance100AlertTest() {
 		accounts.put("1", account1);
+		//Cuenta gasto de 901 del saldo dispoible 1000 para bajarlo a 99
 		accounts.get("1").debit(901);
 		
 		/*
