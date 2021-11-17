@@ -20,15 +20,16 @@ public class MernCRUDTest {
 	  private boolean acceptNextAlert = true;
 	  private StringBuffer verificationErrors = new StringBuffer();
 	  JavascriptExecutor js;
+	  
 	  @Before
 	  public void setUp() throws Exception {
 		WebDriverManager.chromedriver().setup();
 	    driver = new ChromeDriver();
-	    baseUrl = "https://mern-crud.herokuapp.com/";
+	    baseUrl = "http://localhost:3000";//"https://mern-crud.herokuapp.com/";
 	    driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 	    js = (JavascriptExecutor) driver;
 	    
-	    driver.get("https://mern-crud.herokuapp.com/");
+	    driver.get("http://localhost:3000");
 	    String tag = driver.findElement(By.xpath("/html/body/div/div/div[2]/table/tbody")).getText();
 	    while(tag != "") {
 	    	pause(1000);
@@ -41,7 +42,7 @@ public class MernCRUDTest {
 
 	  @Test
 	  public void testCreateUser() throws Exception {
-	    driver.get("https://mern-crud.herokuapp.com/");
+	    driver.get("http://localhost:3000");
 	    driver.findElement(By.xpath("//div[@id='root']/div/div[2]/button")).click();//"//div[@id='root']/div/div[2]/button"
 	    driver.findElement(By.name("name")).click();
 	    driver.findElement(By.name("name")).clear();
@@ -62,7 +63,7 @@ public class MernCRUDTest {
 	  
 	  @Test
 	  public void testRetrieveUser() throws Exception {
-	    driver.get("https://mern-crud.herokuapp.com/");
+	    driver.get("http://localhost:3000");
 	    driver.findElement(By.xpath("//div[@id='root']/div/div[2]/button")).click();
 	    driver.findElement(By.name("name")).click();
 	    driver.findElement(By.name("name")).clear();
@@ -84,7 +85,7 @@ public class MernCRUDTest {
 
 	  @Test
 	  public void testUpdateUser() throws Exception {
-		 driver.get("https://mern-crud.herokuapp.com/");
+		 driver.get("http://localhost:3000");
 		 driver.findElement(By.xpath("//div[@id='root']/div/div[2]/button")).click();
 		 driver.findElement(By.name("name")).click();
 		 driver.findElement(By.name("name")).clear();
@@ -122,7 +123,7 @@ public class MernCRUDTest {
 	    
 	  @Test
 	  public void testDeleteUser() throws Exception {
-	    driver.get("https://mern-crud.herokuapp.com/");
+	    driver.get("http://localhost:3000");
 	    driver.findElement(By.xpath("//div[@id='root']/div/div[2]/button")).click();
 	    driver.findElement(By.name("name")).click();
 	    driver.findElement(By.name("name")).clear();
